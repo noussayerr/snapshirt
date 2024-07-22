@@ -6,17 +6,17 @@ function Navbar() {
   
   return (
     <div>
-      <header className="bg-white">
-        <div className="mx-auto border-b-2 max-w-screen-xl px-4 sm:px-6 lg:px-8">
+      <header className="bg-white border-b-2">
+        <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-18 items-center justify-between">
             <div className='pt-2 flex flex-col items-center'>
               <img src={tshirt} className='rounded-2xl overflow-hidden w-10 h-10' alt="T-shirt logo" />
               <p className='text-xl font-bold'>Snapshirt</p>
             </div>
-            <nav aria-label="Global" className="hidden md:block">
+            <nav aria-label="Global" className="hidden lg:block">
               <ul className="flex items-center gap-6 font-bold text-xl text-black">
                 <li>
-                  <a className="transition hover:text-gray-500/75" href=""> Home </a>
+                  <a className="transition hover:text-gray-500/75 text-[#ff6d30]" href=""> Home </a>
                 </li>
                 <li>
                   <a className="transition hover:text-gray-500/75" href=""> Shop </a>
