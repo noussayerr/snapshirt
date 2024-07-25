@@ -1,9 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import tshirt from '../assets/tshirt.png';
 
 function Navbar() {
   const [isNavOpen, setIsNavOpen] = useState(false);
-  
+  const location = useLocation();
+  const [activeLink, setActiveLink] = useState('');
+
+  useEffect(() => {
+    setActiveLink(location.pathname);
+  }, [location]);
+
+  const linkClasses = (path) => {
+    return path === activeLink ? 'text-[#ff6d30]' : 'transition hover:text-gray-500/75';
+  };
+
   return (
     <div>
       <header className="bg-white border-b-2">
@@ -16,23 +27,23 @@ function Navbar() {
             <nav aria-label="Global" className="hidden lg:block">
               <ul className="flex items-center gap-6 font-bold text-xl text-black">
                 <li>
-                  <a className="transition hover:text-gray-500/75 text-[#ff6d30]" href=""> Home </a>
+                  <Link to="/" className={linkClasses('/')}>Home</Link>
                 </li>
                 <li>
-                  <a className="transition hover:text-gray-500/75" href=""> Shop </a>
+                  <Link to="/shop" className={linkClasses('/shop')}>Shop</Link>
                 </li>
                 <li>
-                  <a className="transition hover:text-gray-500/75" href=""> Contact </a>
+                  <Link to="/contact" className={linkClasses('/contact')}>Contact</Link>
                 </li>
                 <li>
-                  <a className="transition hover:text-gray-500/75" href=""> Customize product </a>
+                  <Link to="/customize" className={linkClasses('/customize')}>Customize product</Link>
                 </li>
               </ul>
             </nav>
             <section className="MOBILE-MENU flex lg:hidden">
               <div
-                className=" space-y-2"
-                onClick={() => {setIsNavOpen((prev) => !prev)}}
+                className="space-y-2"
+                onClick={() => { setIsNavOpen((prev) => !prev); }}
               >
                 <span className="block h-0.5 w-8 bg-black"></span>
                 <span className="block h-0.5 w-8 bg-black"></span>
@@ -60,16 +71,16 @@ function Navbar() {
 
                 <ul className="flex flex-col items-center gap-6 font-bold text-md text-black min-h-[250px]">
                   <li>
-                    <a className="transition hover:text-gray-500/75" href=""> Home </a>
+                    <Link to="/" className={linkClasses('/')}>Home</Link>
                   </li>
                   <li>
-                    <a className="transition hover:text-gray-500/75" href=""> Shop </a>
+                    <Link to="/shop" className={linkClasses('/shop')}>Shop</Link>
                   </li>
                   <li>
-                    <a className="transition hover:text-gray-500/75" href=""> Contact </a>
+                    <Link to="/contact" className={linkClasses('/contact')}>Contact</Link>
                   </li>
                   <li>
-                    <a className="transition hover:text-gray-500/75" href=""> Customize product </a>
+                    <Link to="/customize" className={linkClasses('/customize')}>Customize product</Link>
                   </li>
                 </ul>
               </div>
@@ -97,7 +108,7 @@ function Navbar() {
         }
       `}</style>
     </div>
-  )
+  );
 }
 
 export default Navbar;

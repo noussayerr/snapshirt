@@ -5,10 +5,10 @@ function Landingpage() {
     <div className=" mx-auto max-w-screen-xl px-4  lg:h-full sm:px-6 lg:px-8"> 
         <div className=' flex flex-col lg:flex-row lg:justify-between lg:items-start items-center justify-center py-40'>
             <div className="max-w-xl xl:text-left  text-center">
-                <div class="relative ">
-                    <div class="absolute top-0 -left-10 w-52 md:w-72 h-72 bg-[#FBD1C0] rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-                    <div class="absolute top-0 -right-2 w-52 md:w-72 h-72 bg-[#FBD1C0] rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-                    <div class="absolute -bottom-8 left-10 w-52 md:w-72 h-72 bg-[#FBD1C0] rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+                <div className="relative ">
+                    <div className="absolute top-0 -left-10 w-52 md:w-72 h-72 bg-[#FBD1C0] rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+                    <div className="absolute top-0 -right-2 w-52 md:w-72 h-72 bg-[#FBD1C0] rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+                    <div className="absolute -bottom-8 left-10 w-52 md:w-72 h-72 bg-[#FBD1C0] rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
                     <h1 className="text-4xl sm:text-6xl">
                         FIND TRENDY TSHIRTS
                         <strong className="block font-extrabold text-[#FF6D30]"> OR CREATE YOUR OWN </strong>

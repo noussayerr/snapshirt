@@ -6,8 +6,8 @@ import tshirt5 from '../assets/tshirt5.png'
 function Products() {
   return (
     <div className="bg-white mt-36">
-      <section className=" relative w-full bg-gradient-to-r from-white to-[#FF6D30]">
-      <div class="w-0 h-0 border-r-[99vw] border-t-[690px] border-r-transparent border-[#F9F9F9] absolute"></div>
+      <section className=" relative w-full bg-gradient-to-r from-white to-[#FBD1C0]">
+      <div className="w-0 h-0 border-r-[99vw] border-t-[690px] border-r-transparent border-[#F9F9F9] absolute"></div>
         <div className="relative mx-auto max-w-screen-2xl px-4 py-8 sm:px-6  lg:px-8">
           <header>
             <h2 className="text-xl font-bold text-black sm:text-3xl">

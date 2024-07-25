@@ -7,11 +7,12 @@ import Testimonials from '../components/testimonials'
 function Home() {
   return (
   <div>
-    <section className='bg-[#F9F9F9] scroll-smooth '>
+    <section className='bg-[#FAFAFA] scroll-smooth '>
       <Landingpage />
       <Photogalerie />
       <Products />
       <Testimonials />
+
     </section>
     </div>
   )
