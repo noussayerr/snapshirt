@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import tshirt from '../assets/tshirt.png';
-
+import Usericon from '../assets/usericon';
+import Shopitems from '../assets/shopitems';
 function Navbar() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const location = useLocation();
@@ -24,22 +25,33 @@ function Navbar() {
               <img src={tshirt} className='rounded-2xl overflow-hidden w-10 h-10' alt="T-shirt logo" />
               <p className='text-xl font-bold'>Snapshirt</p>
             </div>
-            <nav aria-label="Global" className="hidden lg:block">
-              <ul className="flex items-center gap-6 font-bold text-xl text-black">
+            <div className='flex gap-20'>
+              <nav aria-label="Global" className="hidden lg:block">
+                <ul className="flex items-center gap-6 font-bold text-xl text-black">
+                  <li>
+                    <Link to="/" className={linkClasses('/')}>Home</Link>
+                  </li>
+                  <li>
+                    <Link to="/shop" className={linkClasses('/shop')}>Shop</Link>
+                  </li>
+                  <li>
+                    <Link to="/contact" className={linkClasses('/contact')}>Contact</Link>
+                  </li>
+                  <li>
+                    <Link to="/customize" className={linkClasses('/customize')}>Customize product</Link>
+                  </li>
+                  
+                </ul>
+              </nav>
+              <ul className='flex gap-6'>
                 <li>
-                  <Link to="/" className={linkClasses('/')}>Home</Link>
+                  <Shopitems />
                 </li>
                 <li>
-                  <Link to="/shop" className={linkClasses('/shop')}>Shop</Link>
-                </li>
-                <li>
-                  <Link to="/contact" className={linkClasses('/contact')}>Contact</Link>
-                </li>
-                <li>
-                  <Link to="/customize" className={linkClasses('/customize')}>Customize product</Link>
+                  <Usericon/>
                 </li>
               </ul>
-            </nav>
+            </div>
             <section className="MOBILE-MENU flex lg:hidden">
               <div
                 className="space-y-2"

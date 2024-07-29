@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import upload from '../assets/upload.png';
 import reload from '../assets/reload.png';
 
-function StepOne({ setSelectedImage, selectedImage }) {
+function StepOne({ setSelectedImage, selectedImage,handleNext }) {
   return (
     <div>
       <div className="">
@@ -35,6 +35,18 @@ function StepOne({ setSelectedImage, selectedImage }) {
             )}
           </div>
         </label>
+          {
+          selectedImage && (
+          <div className="flex justify-center mt-8 mb-4">
+            <button
+              className={`px-4 py-2 rounded-xl text-xl border-2 mt-4 border-[#FF6D30] text-black font-bold'}`}
+              onClick={handleNext}
+            >
+              Continue
+            </button>
+          </div>
+        )
+      }
       </div>
     </div>
   );

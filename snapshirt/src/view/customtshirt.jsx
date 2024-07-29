@@ -7,14 +7,15 @@ import returnicon from '../assets/returnicon.png';
 const Customtshirt = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [selectedImage, setSelectedImage] = useState(null);
-  const [frame, setFrame] = useState({ translate: [0, 0], scale: [1, 1], rotate: 0 });
+  const [tshirt,setTshirt]=useState()
+  const [size,setSize]=useState("L")
+  const [color,setColor]=useState('#e8ebee')
 
   const handleNext = () => {
     if (currentStep < 3) {
       setCurrentStep(currentStep + 1);
     }
   };
-
   const handlePrevious = () => {
     if (currentStep > 1) {
       setCurrentStep(currentStep - 1);
@@ -24,11 +25,11 @@ const Customtshirt = () => {
   const renderContent = () => {
     switch (currentStep) {
       case 1:
-        return <StepOne setSelectedImage={setSelectedImage} selectedImage={selectedImage} />;
+        return <StepOne setSelectedImage={setSelectedImage} selectedImage={selectedImage} handleNext={handleNext} />;
       case 2:
-        return <StepTwo image={selectedImage} frame={frame} setFrame={setFrame} />;
+        return <StepTwo image={selectedImage} handleNext={handleNext} setTshirt={setTshirt} setSize={setSize} color={color} setColor={setColor} />;
       case 3:
-        return <StepThree image={selectedImage} frame={frame} />;
+        return <StepThree tshirt={tshirt} image={selectedImage} size={size} color={color} />;
       default:
         return null;
     }
@@ -44,7 +45,7 @@ const Customtshirt = () => {
         >
           <img src={returnicon} alt="Return" />
         </button>
-        <div className="flex justify-between mb-4 h-16">
+        <div className="flex justify-between mb-4 h-16 shadow-md">
           <div className={`w-80 border-2 p-2 flex items-center gap-2 text-xl ${currentStep === 1 ? 'text-[#E48056]' : ''}`}>
             <div className={`flex items-center justify-center rounded-3xl border-2 w-8 h-8 text-center text-xl 
               ${currentStep > 1 ? 'bg-[#FF6D30] border-[#FF6D30]' : currentStep === 1 ? 'text-[#E48056] border-[#E48056]' : 'text-[#ABB7C2] border-[#ABB7C2]'}`}>
@@ -80,22 +81,10 @@ const Customtshirt = () => {
           </div>
         </div>
       </div>
-      <div className='max-w-screen-xl mx-auto'>
+      <div className='max-w-screen-xl mx-auto mb-16'>
         {renderContent()}
       </div>
-      {
-        selectedImage && (
-          <div className="flex justify-center mt-8 mb-4">
-            <button
-              className={`px-4 py-2 rounded-xl text-xl border-2 mt-4 ${currentStep === 3 ? 'bg-[#FF6D30] text-white font-bold' : 'border-[#FF6D30] text-black font-bold'}`}
-              onClick={handleNext}
-              disabled={currentStep === 3}
-            >
-              Continue
-            </button>
-          </div>
-        )
-      }
+      
     </div>
   );
 };

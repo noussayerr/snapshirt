@@ -11,8 +11,7 @@ function Home() {
       <Landingpage />
       <Photogalerie />
       <Products />
-      <Testimonials />
-
+      <Testimonials/>
     </section>
     </div>
   )

@@ -1,0 +1,19 @@
+import React from 'react'
+
+function Shopitems() {
+  return (
+    <div>
+        <svg width="30" height="30" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+            <rect width="35" height="35" fill="url(#pattern0_260_22)" />
+            <defs>
+                <pattern id="pattern0_260_22" patternContentUnits="objectBoundingBox" width="1" height="1">
+                    <use xlinkHref="#image0_260_22" transform="scale(0.01)" />
+                </pattern>
+                <image id="image0_260_22" width="100" height="100" xlinkHref="data:image/png;base64,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"/>
+            </defs>
+        </svg>
+    </div>
+  )
+}
+
+export default Shopitems
