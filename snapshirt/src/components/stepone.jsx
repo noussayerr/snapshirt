@@ -25,7 +25,8 @@ function StepOne({ setSelectedImage, selectedImage,handleNext }) {
                 <img src={upload} className='w-32' />
                 <p className='text-xl font-bold text-center'>Upload image</p>
                 <input
-                  type="file"
+                  type='file'
+                  accept="image/*"
                   name="myImage"
                   className="hidden"
                   id="dropzone-file"

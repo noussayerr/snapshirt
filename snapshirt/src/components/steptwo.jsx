@@ -83,7 +83,7 @@ function StepTwo({ image,handleNext,setTshirt,setColor,color,setSize }) {
 
   return (
     <div className="flex flex-col md:flex-row gap-10 justify-center items-center">
-      <div className="bg-[#f7f6f6] w-2/3 p-10 rounded-xl flex justify-center relative shadow-md">
+      <div className="bg-[#FFFFFF] w-4/6 p-10 rounded-xl flex justify-center relative shadow-md">
       <div
           ref={imageRef}
           style={{
@@ -148,7 +148,7 @@ function StepTwo({ image,handleNext,setTshirt,setColor,color,setSize }) {
               ></div>
               <div
                 className="w-8 h-8 bg-black rounded-3xl cursor-pointer"
-                onClick={() => handleColorChange('#000')}
+                onClick={() => handleColorChange('#000000')}
               ></div>
               <div
                 className="w-8 h-8 bg-[#FF0000] rounded-3xl cursor-pointer"

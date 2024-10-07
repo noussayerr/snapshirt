@@ -1,10 +1,22 @@
-import React from "react";
+import React,{useRef} from "react";
 import tshirt2 from '../assets/tshirt2.png'
 import tshirt3 from '../assets/tshirt3.png'
 import tshirt4 from '../assets/tshirt4.png'
 import tshirt5 from '../assets/tshirt5.png'
+
+import { motion, useInView } from 'framer-motion';
 function Products() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
   return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={isInView ? { opacity: 1, scale: 1 } : {}}
+      exit={{ opacity: 0, scale: 0.9 }}
+      transition={{ duration: 0.5 }}
+    >
+
     <div className="bg-white mt-36">
       <section className=" relative w-full bg-gradient-to-r from-white to-[#FBD1C0]">
       <div className="w-0 h-0 border-r-[99vw] border-t-[690px] border-r-transparent border-[#F9F9F9] absolute"></div>
@@ -22,7 +34,7 @@ function Products() {
                   src={tshirt5}
                   alt=""
                   className="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px] rounded-lg"
-                />
+                  />
 
                 <div className="relative text-center text-lg">
                   <h3 className=" font-bold text-black group-hover:underline group-hover:underline-offset-4">
@@ -45,7 +57,7 @@ function Products() {
                   src={tshirt2}
                   alt=""
                   className="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px] rounded-lg"
-                />
+                  />
 
                 <div className="relative text-center text-lg">
                   <h3 className=" font-bold text-black group-hover:underline group-hover:underline-offset-4">
@@ -69,7 +81,7 @@ function Products() {
                   src={tshirt3}
                   alt=""
                   className="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px] rounded-lg"
-                />
+                  />
 
                 <div className="relative text-center text-lg">
                   <h3 className=" font-bold text-black group-hover:underline group-hover:underline-offset-4">
@@ -93,7 +105,7 @@ function Products() {
                   src={tshirt4}
                   alt=""
                   className="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px] rounded-lg"
-                />
+                  />
 
                 <div className="relative text-center text-lg">
                   <h3 className=" font-bold text-black group-hover:underline group-hover:underline-offset-4">
@@ -117,19 +129,19 @@ function Products() {
               <a
                 href="#"
                 className="inline-flex size-8 items-center justify-center rounded border border-gray-100"
-              >
+                >
                 <span className="sr-only">Prev Page</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-3 w-3"
                   viewBox="0 0 20 20"
                   fill="currentColor"
-                >
+                  >
                   <path
                     fillRule="evenodd"
                     d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
                     clipRule="evenodd"
-                  />
+                    />
                 </svg>
               </a>
             </li>
@@ -138,7 +150,7 @@ function Products() {
               <a
                 href="#"
                 className="block size-8 rounded border border-gray-100 text-center leading-8"
-              >
+                >
                 1
               </a>
             </li>
@@ -151,7 +163,7 @@ function Products() {
               <a
                 href="#"
                 className="block size-8 rounded border border-gray-100 text-center leading-8"
-              >
+                >
                 3
               </a>
             </li>
@@ -160,7 +172,7 @@ function Products() {
               <a
                 href="#"
                 className="block size-8 rounded border border-gray-100 text-center leading-8"
-              >
+                >
                 4
               </a>
             </li>
@@ -169,19 +181,19 @@ function Products() {
               <a
                 href="#"
                 className="inline-flex size-8 items-center justify-center rounded border border-gray-100"
-              >
+                >
                 <span className="sr-only">Next Page</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-3 w-3"
                   viewBox="0 0 20 20"
                   fill="currentColor"
-                >
+                  >
                   <path
                     fillRule="evenodd"
                     d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
                     clipRule="evenodd"
-                  />
+                    />
                 </svg>
               </a>
             </li>
@@ -189,6 +201,7 @@ function Products() {
         </div>
       </section>
     </div>
+    </motion.div>
   );
 }
 
