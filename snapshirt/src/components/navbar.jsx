@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation,useNavigate } from 'react-router-dom';
 import Formportal from './formportal';
 import tshirt from '../assets/tshirt.png';
 import { ShoppingCart } from 'lucide-react';
@@ -7,16 +7,16 @@ import Usericon from '../assets/usericon';
 import { useAuthStore } from '../store/authStore';
 import { Sparkles } from 'lucide-react';
 import { useCartStore } from "../store/useCartStore";
-
+import { IoIosLogOut } from "react-icons/io";
 function Navbar() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true); 
   const [lastScrollY, setLastScrollY] = useState(0); 
   const location = useLocation();
   const [activeLink, setActiveLink] = useState('');
+  const navigate = useNavigate();
   const { cart } = useCartStore();
-  const { isAuthenticated, user } = useAuthStore();
-
+  const { isAuthenticated, user,logout } = useAuthStore();
   useEffect(() => {
     setActiveLink(location.pathname);
   }, [location]);
@@ -34,7 +34,16 @@ function Navbar() {
     }
     setLastScrollY(window.scrollY);
   };
+  const handlelogout = async (e) => {
+		e.preventDefault();
 
+		try {
+			await logout();
+			navigate("/");
+		} catch (error) {
+			console.log(error);
+		}
+	};
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => {
@@ -61,9 +70,6 @@ function Navbar() {
                     <Link to="/shop" className={linkClasses('/shop')}>Shop</Link>
                   </li>
                   <li>
-                    <Link to="/contact" className={linkClasses('/contact')}>Contact</Link>
-                  </li>
-                  <li>
                     <Link to="/customize" className={linkClasses('/customize')}>Customize product</Link>
                   </li>
                 </ul>
@@ -77,20 +83,32 @@ function Navbar() {
                     <ShoppingCart className={linkClasses('/cart')} />
                   </Link>
                 </li>
-                <li>
+                <li className='flex justify-center items-center gap-4'>
                   {isAuthenticated ? (
                     user.role === "admin" ? (
-                      <Link to={'/Dashboard'}>
-                        <p className={linkClasses('/Dashboard')}>Dashboard <Sparkles className={linkClasses('/Dashboard')} /></p>
-                      </Link>
+                      <>
+                        <Link to={'/Dashboard'}>
+                          <p className={linkClasses('/Dashboard')}>Dashboard <Sparkles className={linkClasses('/Dashboard')} /></p>
+                        </Link>
+                        <button onClick={handlelogout}>
+                          <IoIosLogOut size={32} />
+                      </button>
+                      </>
+                      
                     ) : (
-                      <Link to={'/profile'}>
-                        <Usericon />
-                      </Link>
+                      <>
+                        <Link to={'/profile'}>
+                          <Usericon />
+                        </Link>
+                        <button onClick={handlelogout}>
+                          <IoIosLogOut size={32} />
+                        </button>
+                      </>
                     )
                   ) : (
                     <Formportal />
                   )}
+                  
                 </li>
               </ul>
             </div>
@@ -129,9 +147,6 @@ function Navbar() {
                   </li>
                   <li>
                     <Link to="/shop" className={linkClasses('/shop')}>Shop</Link>
-                  </li>
-                  <li>
-                    <Link to="/contact" className={linkClasses('/contact')}>Contact</Link>
                   </li>
                   <li>
                     <Link to="/customize" className={linkClasses('/customize')}>Customize product</Link>

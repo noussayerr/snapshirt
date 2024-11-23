@@ -3,7 +3,7 @@ import tshirt from '../assets/tshirt.png';
 function Footer() {
   return (
   <div>
-    <footer className="bg-white">
+    <footer className="bg-white border">
       <div className="mx-auto max-w-screen-xl px-4 pb-6 pt-16 sm:px-6 lg:px-8 lg:pt-10">
         <div className="flex gap-20">
           <div>

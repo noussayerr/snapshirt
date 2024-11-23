@@ -50,7 +50,7 @@ const StepThree = ({tshirt,color,size}) => {
           </div>
         </div>
         <div className='flex mt-20 justify-between'>
-        <p className="text-center text-2xl font-bold">35 DT</p>
+        <p className="text-center text-2xl font-bold">50 DT</p>
         <button className="px-4 py-2 w-52 rounded-xl text-xl border-2  border-[#FF6D30] text-black font-bold shadow-lg" onClick={handleSubmit}>Continue</button>
         </div>
       </div>

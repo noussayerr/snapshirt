@@ -87,7 +87,11 @@ const product={
             const product = await Product.findById(req.params.id);
             if (product) {
                 product.isFeatured = !product.isFeatured;
-                const updatedProduct = await product.save();
+                const updatedProduct = await Product.findByIdAndUpdate(
+                    req.params.id,
+                    { $set: { isFeatured: product.isFeatured } }, // Or toggle using `$set` with a dynamic value
+                    { new: true, runValidators: true } // Return the updated document and validate only the updated fields
+                );
                 res.json(updatedProduct);
             } else {
                 res.status(404).json({ message: "Product not found" });

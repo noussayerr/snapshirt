@@ -227,7 +227,7 @@ function Testimonials() {
                     </svg>
                     </div>
 
-                    <p className="mt-0.5 text-lg font-medium text-gray-900">Paul Starr</p>
+                    <p className="mt-0.5 text-lg font-medium text-gray-900">maaaaaarouuumaaa</p>
                 </div>
                 </div>
 
